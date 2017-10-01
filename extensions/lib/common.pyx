@@ -4,7 +4,7 @@ cimport cython
 from numpy cimport *
 
 cdef extern from "numpy/arrayobject.h":
-    void import_array()
+    void _import_array()
 
 cdef extern from "math.h":
     double log(double x)
@@ -16,7 +16,7 @@ cdef double NaN = <double> np.NaN
 cdef double clog2 = log(2.)
 
 # initialize numpy
-import_array()
+_import_array()
 
 cdef inline int int_max(int a, int b): return a if a >= b else b
 cdef inline int int_min(int a, int b): return a if a >= b else b
